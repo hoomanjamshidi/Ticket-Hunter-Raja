@@ -1,0 +1,187 @@
+/* انتخابگر تاریخ شمسی */
+
+.datepicker {
+  position: relative;
+}
+
+.datepicker-input {
+  display: flex;
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 160ms ease-out;
+}
+
+.datepicker-input:hover {
+  border-color: var(--fg-muted);
+}
+
+.datepicker-input:focus-within {
+  border-color: var(--info);
+}
+
+/* حالت خطا — همراه با پیام متنی زیر فیلد، نه فقط رنگ */
+.datepicker-input.is-invalid {
+  border-color: var(--danger);
+}
+
+.datepicker-input input {
+  flex: 1;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 var(--s-3);
+  background: none;
+  border: 0;
+  outline: none;
+}
+
+.datepicker-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  min-height: 40px;
+  border: 0;
+  background: none;
+  color: var(--fg-muted);
+  cursor: pointer;
+  transition: color 160ms ease-out;
+}
+
+.datepicker-toggle:hover {
+  color: var(--accent);
+}
+
+/* ─── پاپ‌آور تقویم ───────────────────────────────────────────────────── */
+/*
+ * `fixed` است تا کشوی اسکرول‌دار فرم آن را نبُرد؛ مختصات را خود کامپوننت
+ * نسبت به viewport حساب می‌کند.
+ */
+.datepicker-pop {
+  position: fixed;
+  z-index: 60;
+  width: 268px;
+  /* روی صفحه‌های باریک از لبه بیرون نزند */
+  max-width: calc(100vw - 16px);
+  padding: var(--s-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: dp-in 150ms ease-out;
+}
+
+@keyframes dp-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+
+
+.datepicker-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--s-2);
+}
+
+.datepicker-head button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--fg-muted);
+  cursor: pointer;
+  transition:
+    background 160ms ease-out,
+    color 160ms ease-out;
+}
+
+.datepicker-head button:hover {
+  background: var(--surface-3);
+  color: var(--fg);
+}
+
+.datepicker-title {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.datepicker-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.datepicker-weekday {
+  text-align: center;
+  font-size: 11px;
+  color: var(--fg-muted);
+  padding-bottom: var(--s-1);
+}
+
+.datepicker-day {
+  aspect-ratio: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  transition:
+    background 140ms ease-out,
+    color 140ms ease-out;
+}
+
+.datepicker-day:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+
+.datepicker-day:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* امروز فقط قاب دارد، تا با روز انتخاب‌شده اشتباه نشود */
+.datepicker-day.is-today {
+  border-color: var(--info);
+}
+
+.datepicker-day.is-selected {
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-weight: 700;
+}
+
+.datepicker-foot {
+  display: flex;
+  gap: var(--s-2);
+  margin-top: var(--s-3);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--border);
+}
+
+.datepicker-foot button {
+  flex: 1;
+  min-height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 160ms ease-out;
+}
+
+.datepicker-foot button:hover {
+  background: var(--surface-3);
+}

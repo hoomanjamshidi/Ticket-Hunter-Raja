@@ -1,0 +1,9 @@
+node_modules/
+dist/
+data/
+.env
+web/dist/
+*.log
+_tmp_*.ts
+graphify-out/
+.DS_Store

@@ -1,0 +1,72 @@
+/* نمای زنده‌ی مرورگر خودکار */
+
+.browser-actions {
+  display: flex;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  margin-bottom: var(--s-3);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+
+.browser-dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--danger);
+}
+
+.browser-dot.is-on {
+  background: var(--accent);
+}
+
+.browser-url {
+  color: var(--fg-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.browser-stage {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  /* نسبت ۱۲۸۰×۸۰۰ همان viewport مرورگر است */
+  aspect-ratio: 1280 / 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.browser-frame {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+}
+
+.browser-frame.is-interactive {
+  cursor: pointer;
+}
+
+.browser-placeholder {
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+
+.browser-note {
+  margin: var(--s-3) 0 0;
+}

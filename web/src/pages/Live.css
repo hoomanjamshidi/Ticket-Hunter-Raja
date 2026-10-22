@@ -1,0 +1,61 @@
+.picker {
+  min-height: 40px;
+  padding: 0 var(--s-3);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.match-tag {
+  margin-inline-start: var(--s-2);
+  padding: 1px var(--s-2);
+  border-radius: 999px;
+  font-size: 11px;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+/* ─── لاگ زنده ────────────────────────────────────────────────────────── */
+.log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 340px;
+  overflow-y: auto;
+  font-size: 13px;
+}
+
+.log-item {
+  display: grid;
+  grid-template-columns: 74px 130px 1fr;
+  gap: var(--s-3);
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 45%, transparent);
+  /* ورود نرم ردیف تازه */
+  animation: log-in 200ms ease-out;
+}
+
+@keyframes log-in {
+  from { opacity: 0; transform: translateY(-4px); }
+}
+
+.log-time,
+.log-scope {
+  color: var(--fg-muted);
+}
+
+.log-scope {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.log-warn .log-msg { color: var(--warning); }
+.log-error .log-msg { color: var(--danger); }
+
+@media (max-width: 640px) {
+  .log-item {
+    grid-template-columns: 64px 1fr;
+  }
+  .log-scope { display: none; }
+}

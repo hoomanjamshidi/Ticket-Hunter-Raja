@@ -1,0 +1,255 @@
+/* اجزای پایه — همه‌ی رنگ‌ها از توکن‌های theme.css می‌آیند */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--s-5);
+  box-shadow: var(--shadow);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+}
+
+.card-title {
+  font-size: 16px;
+}
+
+.card-actions {
+  display: flex;
+  gap: var(--s-2);
+}
+
+/* ─── دکمه‌ها ──────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  /* حداقل ۴۴px ارتفاع برای هدف لمسی */
+  min-height: 40px;
+  padding: 0 var(--s-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  cursor: pointer;
+  font-weight: 500;
+  transition:
+    background 160ms ease-out,
+    border-color 160ms ease-out,
+    transform 160ms ease-out;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--surface-3);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.08);
+  background: var(--accent);
+}
+
+.btn-danger {
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 40%, var(--border));
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--danger) 12%, var(--surface-2));
+}
+
+/* ─── وضعیت ───────────────────────────────────────────────────────────── */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: 13px;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+/* ─── فرم ─────────────────────────────────────────────────────────────── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  min-width: 0;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-muted);
+}
+
+.field input,
+.field select,
+.field textarea {
+  min-height: 40px;
+  padding: 0 var(--s-3);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 160ms ease-out;
+}
+
+.field input:hover,
+.field select:hover {
+  border-color: var(--fg-muted);
+}
+
+.field-hint,
+.field-error {
+  font-size: 12px;
+}
+
+.field-hint {
+  color: var(--fg-muted);
+}
+
+.field-error {
+  color: var(--danger);
+}
+
+/* ─── حالت خالی ───────────────────────────────────────────────────────── */
+.empty {
+  padding: var(--s-6) var(--s-4);
+  text-align: center;
+  color: var(--fg-muted);
+}
+
+.empty-title {
+  margin: 0 0 var(--s-2);
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.empty-hint {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* ─── بنر ─────────────────────────────────────────────────────────────── */
+.banner {
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  font-size: 14px;
+}
+
+.banner-info {
+  color: var(--info);
+  border-color: color-mix(in srgb, var(--info) 40%, transparent);
+  background: color-mix(in srgb, var(--info) 12%, transparent);
+}
+
+.banner-success {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.banner-warning {
+  color: var(--warning);
+  border-color: color-mix(in srgb, var(--warning) 40%, transparent);
+  background: color-mix(in srgb, var(--warning) 12%, transparent);
+}
+
+.banner-danger {
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 40%, transparent);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+}
+
+/* ─── جدول ────────────────────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+table.data th {
+  text-align: right;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--fg-muted);
+  padding: var(--s-2) var(--s-3);
+  border-bottom: 1px solid var(--border);
+}
+
+table.data td {
+  padding: var(--s-3);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+}
+
+table.data tbody tr {
+  transition: background 160ms ease-out;
+}
+
+table.data tbody tr:hover {
+  background: var(--surface-2);
+}
+
+/* ردیفی که فیلترها را پاس کرده — رنگ به‌تنهایی نشانه نیست، ستون وضعیت هم هست */
+table.data tr.is-match {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.grid {
+  display: grid;
+  gap: var(--s-4);
+}
+
+/* دکمه‌ای که مثل لینک دیده می‌شود — برای نام‌های قابل کلیک در جدول */
+.link {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--info);
+  cursor: pointer;
+  font: inherit;
+  text-align: start;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: 0.9em;
+}
